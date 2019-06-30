@@ -1,5 +1,6 @@
 import React from 'react';
-import {Navigation} from './components/navigation'
+import Navigation from './components/navigation';
+import SidebarNav from './components/sidebarnav';
 import './App.css';
 
 function App() {
@@ -10,7 +11,10 @@ function App() {
   }
 
   return (
-      <Navigation headerBrand={headerBrand} themes={themes} defaultTheme={state.theme}/>
+      <div>
+          <Navigation headerBrand={headerBrand} themes={themes} defaultTheme={state.theme}/>
+          <SidebarNav/>
+      </div>
   );
 }
 

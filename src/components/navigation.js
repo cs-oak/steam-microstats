@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Navbar, Dropdown} from 'react-bootstrap'
 
-export class Navigation extends Component {
+export default class Navigation extends Component {
     render() {
         return(
             <Navbar bg={this.props.defaultTheme} variant={this.props.defaultTheme} expand={'lg'}>
