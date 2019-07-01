@@ -5,7 +5,7 @@ export default class Navigation extends Component {
     render() {
         return(
             <Navbar bg={this.props.defaultTheme} variant={this.props.defaultTheme} expand={'lg'}>
-                <Navbar.Brand>
+                <Navbar.Brand onClick={() => this.props.revealSidebar()}>
                     {this.props.headerBrand}
                 </Navbar.Brand>
                 <Dropdown>

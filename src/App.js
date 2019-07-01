@@ -7,13 +7,17 @@ function App() {
   const headerBrand = 'Steam Stats App';
   const themes = ['Light', 'Dark']
   let state = {
-      theme: 'dark'
+      theme: 'dark',
+      sidebarTheme: 'secondary',
+      sidebarVisible: false
   }
 
   return (
       <div>
           <Navigation headerBrand={headerBrand} themes={themes} defaultTheme={state.theme}/>
-          <SidebarNav/>
+          <span id = 'sidebar-container'>
+            <SidebarNav outerContainerId={'sidebar-container'} theme={state.sidebarTheme}/>
+          </span>
       </div>
   );
 }

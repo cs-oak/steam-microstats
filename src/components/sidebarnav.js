@@ -1,33 +1,29 @@
-import React, {Component} from 'react';
-import {Button, Nav} from 'react-bootstrap';
-import Sidebar from 'react-bootstrap-sidebar';
+import React, {Component} from 'react'
+import {ListGroup} from 'react-bootstrap'
+import {slide as Menu} from 'react-burger-menu'
 
 export default class SidebarNav extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isVisible: false
-        };
-
+            menuOpen: false
+        }
     }
-    update = ()=>{
-        this.setState({isVisible: !this.state.isVisible});
-        this.forceUpdate();
+
+    handleOpen = () => {
+        this.setState(state => ({menuOpen: !state.menuOpen}))
     }
 
     render() {
         return (
             <div>
-                <Button variant={'secondary'} onClick={this.update()}>
-                    B
-                </Button>
-                <Sidebar side={'left'} isVisible={this.state.isVisible} onHide={()=>this.update()}>
-                    <Nav>
-                        <Nav.Item href={'#'}>News Crawler</Nav.Item>
-                        <Nav.Item href={'#'}>Dota 2 Chat Log Scanner</Nav.Item>
-                        <Nav.Item href={'#'}>Achievement Details</Nav.Item>
-                    </Nav>
-                </Sidebar>
+                <Menu outerContainerId={this.props.outerContainerId} state={this.state.menuOpen}>
+                    <ListGroup>
+                        <ListGroup.Item action variant={this.props.theme}>News</ListGroup.Item>
+                        <ListGroup.Item action variant={this.props.theme}>DOTA 2 Chat Scan</ListGroup.Item>
+                        <ListGroup.Item action variant={this.props.theme}>Achievement Analysis</ListGroup.Item>
+                    </ListGroup>
+                </Menu>
             </div>
         );
     }
